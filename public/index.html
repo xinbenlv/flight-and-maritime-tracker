@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight & Maritime Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/three@0.162.0/build/three.min.js"></script>
+  <script>window.THREE = THREE;</script>
+  <script src="https://unpkg.com/globe.gl@2.35.1/dist/globe.gl.min.js"></script>
+</head>
+<body>
+  <!-- Search bar -->
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search flight callsign (e.g. UAL123)" autocomplete="off">
+    <div id="search-results"></div>
+  </div>
+
+  <!-- Control panel -->
+  <div id="control-panel">
+    <button id="panel-toggle" aria-label="Toggle menu">MENU</button>
+    <div id="panel-content">
+      <h2>Tracker Controls</h2>
+
+      <div class="status-bar">
+        <span id="status-indicator" class="status-live">
+          <span class="status-dot"></span>
+          <span id="status-text">Live</span>
+        </span>
+        <span id="stats-text">Tracking 0 flights, 0 ships</span>
+      </div>
+
+      <div class="control-group">
+        <label>Layers</label>
+        <div class="toggle-row">
+          <span>Flights</span>
+          <input type="checkbox" id="toggle-flights" checked>
+        </div>
+        <div class="toggle-row">
+          <span>Ships</span>
+          <input type="checkbox" id="toggle-ships" checked>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Flight Count: <span id="flight-count-label">50</span></label>
+        <input type="range" id="flight-count" min="10" max="500" value="50" step="10">
+      </div>
+
+      <div class="control-group">
+        <label>Refresh Interval</label>
+        <select id="refresh-interval">
+          <option value="5000">5 seconds</option>
+          <option value="10000" selected>10 seconds</option>
+          <option value="30000">30 seconds</option>
+          <option value="60000">60 seconds</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Globe container -->
+  <div id="globe-container"></div>
+
+  <script src="js/ships.js"></script>
+  <script src="js/flights.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/globe.js"></script>
+</body>
+</html>
