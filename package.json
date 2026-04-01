@@ -1,0 +1,12 @@
+{
+  "name": "flight-and-maritime-tracker",
+  "version": "1.0.0",
+  "description": "3D globe flight and maritime tracker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
